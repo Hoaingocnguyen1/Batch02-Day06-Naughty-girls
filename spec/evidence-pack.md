@@ -4,7 +4,7 @@ Nộp kèm thin SPEC cuối Day 05.
 
 ## 1. Nhóm và track
 
-**Tên nhóm:** A6
+**Tên nhóm:** A4
 
 **Track:** Food & Local Delivery
 
