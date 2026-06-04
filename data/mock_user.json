@@ -1,0 +1,26 @@
+{
+    "user_id": "user_001",
+    "context": {
+        "location": {
+            "lat": 21.0285,
+            "lng": 105.8542,
+            "city": "Hà Nội"
+        },
+        "current_time": "lunch",
+        "current_intent": "find_food"
+    },
+    "history": {
+        "queries": [
+            "ăn gì gần đây",
+            "quán ăn Hoàn Kiếm",
+            "đồ trưa nhẹ"
+        ],
+        "clicked_items": [
+            "res_005",
+            "res_010"
+        ],
+        "skipped_items": [
+            "res_019"
+        ]
+    }
+}

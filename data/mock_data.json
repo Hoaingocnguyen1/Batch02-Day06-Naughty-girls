@@ -1,0 +1,296 @@
+
+{
+"id": "res_001",
+"name": "Bún Cá Sâm Cây Si",
+"lat": 21.0329,
+"lng": 105.8504,
+"is_open": true,
+"rating": 4.3,
+"review_count": 4200,
+"distance_km": 1.1,
+"eta_min": 15,
+"cuisine": "Bún cá",
+"address": "5 Ngõ Trung Yên, Hàng Bạc, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bún+Cá+Sâm+Cây+Si+5+Ngõ+Trung+Yên+Hàng+Bạc+Hoàn+Kiếm+Hà+Nội",
+"cover_image_url": "https://thanhnien.mediacdn.vn/uploaded/ngocthanh/2019_03_23/anh-2_RGXY.jpg?width=500",
+"opening_hours": { "open": "07:00", "close": "17:00" },
+"contexts": ["breakfast", "lunch"],
+"dishes": [
+    {
+    "id": "dish_2601",
+    "name": "Bún Cá Rán",
+    "price": 50000,
+    "image_url": "https://assets.grab.com/wp-content/uploads/sites/11/2019/09/09164359/BD3CE356-5535-44A5-B5C6-22DA57B42AD7.jpg",
+    "is_available": true
+    },
+    {
+    "id": "dish_2602",
+    "name": "Cá Cuốn Thịt",
+    "price": 10000,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl6VcHjZDpZYYHEbLu-vE5NmypkP1CnEaiYw&s",
+    "is_available": true
+    }
+],
+"tags": ["nước", "cá", "ăn sáng", "phố cổ", "lâu năm"]
+},
+
+{
+"id": "res_002",
+"name": "Bún Đậu Mắm Tôm Hàng Khay",
+"lat": 21.0288,
+"lng": 105.8513,
+"is_open": true,
+"rating": 4.4,
+"review_count": 3800,
+"distance_km": 0.7,
+"eta_min": 10,
+"cuisine": "Bún đậu",
+"address": "Ngõ 31 Hàng Khay, Tràng Tiền, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://maps.app.goo.gl/PV6TuDjM6DY2Ebi26",
+"cover_image_url": "https://down-bs-vn.img.susercontent.com/vn-11134513-7r98o-lsvfg9x2wd6s6e@resize_ss640x400!@crop_w640_h400_cT",
+"opening_hours": { "open": "07:00", "close": "21:00" },
+"contexts": ["lunch", "dinner", "group"],
+"dishes": [
+    {
+    "id": "dish_2701",
+    "name": "Mẹt Bún Đậu Đặc Biệt",
+    "price": 85000,
+    "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81@resize_ss400x400!@crop_w400_h400_cT",
+    "is_available": true
+    }
+],
+"tags": ["mắm tôm", "chiên", "no bụng", "phố cổ"]
+},
+
+{
+"id": "res_003",
+"name": "Chả Cá Thăng Long",
+"lat": 21.0341,
+"lng": 105.8467,
+"is_open": true,
+"rating": 4.6,
+"review_count": 6200,
+"distance_km": 1.5,
+"eta_min": 20,
+"cuisine": "Chả cá",
+"address": "2D & 6B Đường Thành, Cửa Đông, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://maps.app.goo.gl/pcRuXAsHe7JcsLoD6",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSJUWEuhA8tXLgyI19iqes4DPNgkFZjEBAfQ&s",
+"opening_hours": { "open": "08:45", "close": "22:30" },
+"contexts": ["lunch", "dinner", "family"],
+"dishes": [
+    {
+    "id": "dish_2801",
+    "name": "Chả Cá Lăng",
+    "price": 180000,
+    "image_url": "https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-cha-ca-thang-long-duong-thanh-slide-1-normal-12069355172.webp",
+    "is_available": true
+    }
+],
+"tags": ["cá", "đặc sản", "hà nội", "nướng tại bàn"]
+},
+
+{
+"id": "res_004",
+"name": "Bánh Mì 25",
+"lat": 21.0361,
+"lng": 105.8492,
+"is_open": true,
+"rating": 4.4,
+"review_count": 14035,
+"distance_km": 1.3,
+"eta_min": 15,
+"cuisine": "Bánh mì",
+"address": "25 Hàng Cá, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Banh+Mi+25+Hang+Ca",
+"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=Banh+Mi+25",
+"cover_image_url": "https://source.unsplash.com/800x600/?banh-mi,vietnam",
+"opening_hours": { "open": "07:00", "close": "21:00" },
+"contexts": ["breakfast", "snack"],
+"dishes": [
+    {
+    "id": "dish_2901",
+    "name": "Bánh Mì Thập Cẩm",
+    "price": 35000,
+    "image_url": "https://source.unsplash.com/400x300/?banh-mi,pate,vietnam",
+    "is_available": true
+    }
+],
+"tags": ["takeaway", "phố cổ", "nổi tiếng"]
+},
+
+{
+"id": "res_005",
+"name": "Cộng Cà Phê Nhà Thờ",
+"lat": 21.0288,
+"lng": 105.8496,
+"is_open": true,
+"rating": 4.5,
+"review_count": 9500,
+"distance_km": 0.6,
+"eta_min": 8,
+"cuisine": "Cafe",
+"address": "27 Nhà Thờ, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cong+Ca+Phe+Nha+Tho",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQIBu7-iOSwfBt90mgFunQV5zMIbdaMcpTNg&s",
+"opening_hours": { "open": "07:30", "close": "23:30" },
+"contexts": ["drink", "work", "date"],
+"dishes": [
+    {
+    "id": "dish_3001",
+    "name": "Cà Phê Cốt Dừa",
+    "price": 55000,
+    "image_url": "https://cdn.tgdd.vn/2020/08/CookProduct/17-1200x676-3.jpg",
+    "is_available": true
+    }
+],
+"tags": ["chill", "check-in", "cafe"]
+},
+
+{
+"id": "res_006",
+"name": "Bánh Cuốn Bà Hoành",
+"lat": 21.0189,
+"lng": 105.8499,
+"is_open": true,
+"rating": 4.1,
+"review_count": 2900,
+"distance_km": 2.2,
+"eta_min": 15,
+"cuisine": "Bánh cuốn",
+"address": "66 Tô Hiến Thành, Hai Bà Trưng, Hà Nội",
+"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bánh+Cuốn+Bà+Hoành+66+Tô+Hiến+Thành+Hai+Bà+Trưng+Hà+Nội",
+"cover_image_url": "https://mia.vn/media/uploads/blog-du-lich/banh-cuon-ba-hoanh-hang-an-ngot-nghet-tram-nam-tuoi-giua-long-thu-do-2-1666681784.jpg",
+"opening_hours": { "open": "06:00", "close": "20:00" },
+"contexts": ["breakfast", "lunch"],
+"dishes": [
+    {
+    "id": "dish_0601",
+    "name": "Bánh Cuốn Chả Nướng",
+    "price": 45000,
+    "image_url": "https://mia.vn/media/uploads/blog-du-lich/banh-cuon-phu-ly-5-1688999772.jpg",
+    "is_available": true
+    },
+    {
+    "id": "dish_0602",
+    "name": "Bánh Khoai Môn",
+    "price": 15000,
+    "image_url": "https://cdn.tgdd.vn/2021/03/CookProduct/1200-1200x676-85.jpg",
+    "is_available": false
+    }
+],
+"tags": ["khô", "thịt lợn", "ăn sáng", "bình dân", "đông đúc"]
+},
+
+{
+"id": "res_007",
+"name": "Bún Đậu Mắm Tôm Ngõ Trạm",
+"lat": 21.0315,
+"lng": 105.8458,
+"is_open": true,
+"rating": 4.3,
+"review_count": 1800,
+"distance_km": 1.4,
+"eta_min": 10,
+"cuisine": "Bún đậu",
+"address": "1B Ngõ Trạm, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bún+Đậu+Ngõ+Trạm+1B+Ngõ+Trạm+Hoàn+Kiếm+Hà+Nội",
+"shopeefood_url": "https://shopeefood.vn/ha-noi/bun-dau-ngo-tram",
+"cover_image_url": "https://down-vn.img.susercontent.com/vn-11134513-7r98o-lsts7gssrogpff@resize_ss576x330",
+"opening_hours": { "open": "09:00", "close": "16:00" },
+"contexts": ["lunch"],
+"dishes": [
+    {
+    "id": "dish_0701",
+    "name": "Mẹt Bún Đậu Đầy Đủ",
+    "price": 65000,
+    "image_url": "https://down-vn.img.susercontent.com/vn-11134513-7r98o-lsts7gssrogpff@resize_ss576x330",
+    "is_available": true
+    }
+],
+"tags": ["khô", "đậu phụ", "ăn trưa", "trong ngõ", "đậm đà"]
+},
+
+{
+"id": "res_008",
+"name": "McDonald's Hồ Gươm",
+"lat": 21.0284,
+"lng": 105.8534,
+"is_open": true,
+"rating": 4.4,
+"review_count": 6100,
+"distance_km": 0.8,
+"eta_min": 10,
+"cuisine": "Burger",
+"address": "2 Hàng Bài, Hoàn Kiếm, Hà Nội",
+"google_maps_url": "https://www.google.com/maps/search/?api=1&query=McDonalds+Hang+Bai",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXmf6JIlRVFBpfhGpFwdJyquJqzlrpXFpADQ&s",
+"opening_hours": { "open": "07:00", "close": "23:00" },
+"contexts": ["family"],
+"dishes": [
+    {
+    "id": "dish_3301",
+    "name": "Big Mac",
+    "price": 89000,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0SpGl8wCm8O_fAIkqbL-LTR5418s0zK83aA&s",
+    "is_available": true
+    }
+],
+"tags": ["fastfood", "burger"]
+},
+
+{
+"id": "res_009",
+"name": "Sushi Kei Vincom Bà Triệu",
+"lat": 21.0116,
+"lng": 105.8495,
+"is_open": true,
+"rating": 4.6,
+"review_count": 3400,
+"distance_km": 2.4,
+"eta_min": 25,
+"cuisine": "Japanese",
+"address": "191 Bà Triệu, Hà Nội",
+"google_maps_url": "https://maps.app.goo.gl/Qw9bn6LDNwkarSxi6",
+"cover_image_url": "https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-sushi-kei-mipec-tay-son-slide-9-normal-12150979002.webp",
+"opening_hours": { "open": "10:00", "close": "22:00" },
+"contexts": ["date"],
+"dishes": [
+    {
+    "id": "dish_3401",
+    "name": "Salmon Sushi Set",
+    "price": 189000,
+    "image_url": "https://source.unsplash.com/400x300/?salmon,sushi",
+    "is_available": true
+    }
+],
+"tags": ["japanese", "sushi"]
+},
+
+{
+"id": "res_010",
+"name": "Manwah Lotte Liễu Giai",
+"lat": 21.0335,
+"lng": 105.8132,
+"is_open": true,
+"rating": 4.7,
+"review_count": 8200,
+"distance_km": 4.2,
+"eta_min": 35,
+"cuisine": "Hotpot",
+"address": "54 Liễu Giai, Ba Đình, Hà Nội",
+"google_maps_url": "https://maps.app.goo.gl/Yp6YnvriEnhS6sAb8",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRKzMWH4RrlwAyKAvA67U_RmTE9AjA7ku9w&s",
+"opening_hours": { "open": "10:00", "close": "22:00" },
+"contexts": ["group", "family"],
+"dishes": [
+    {
+    "id": "dish_3501",
+    "name": "Buffet Lẩu",
+    "price": 399000,
+    "image_url": "https://product.hstatic.net/1000275435/product/5_optimized_6aba5b13ddb2428d84283b9a553ddd54_master.jpg",
+    "is_available": true
+    }
+],
+"tags": ["buffet", "hotpot"]
+}
