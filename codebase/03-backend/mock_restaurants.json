@@ -1,0 +1,390 @@
+[
+  {
+    "id": "res_001",
+    "name": "Bún Bò Cô Ba",
+    "latitude": 10.7765,
+    "longitude": 106.7008,
+    "opening_time": "06:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Bún Bò Huế Đặc Biệt", "price": 45000, "is_available": true},
+      {"name": "Bún Bò Giò Heo", "price": 38000, "is_available": true},
+      {"name": "Bún Bò Tái Nạm", "price": 40000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_002",
+    "name": "Cơm Tấm Bụi Sài Gòn",
+    "latitude": 10.7780,
+    "longitude": 106.7025,
+    "opening_time": "07:00",
+    "closing_time": "21:00",
+    "dishes": [
+      {"name": "Cơm Tấm Sườn Bì Chả", "price": 42000, "is_available": true},
+      {"name": "Cơm Sườn Non Nướng", "price": 55000, "is_available": true},
+      {"name": "Cơm Tấm Chả Chưng", "price": 35000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_003",
+    "name": "Phở Gia Truyền Hà Nội",
+    "latitude": 10.7752,
+    "longitude": 106.6995,
+    "opening_time": "06:00",
+    "closing_time": "13:00",
+    "dishes": [
+      {"name": "Phở Bò Tái Lăn", "price": 50000, "is_available": true},
+      {"name": "Phở Bò Chín Nạm", "price": 45000, "is_available": true},
+      {"name": "Quẩy Nóng", "price": 5000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_004",
+    "name": "Trà Sữa Gong Cha - Hồ Tùng Mậu",
+    "latitude": 10.7735,
+    "longitude": 106.7042,
+    "opening_time": "09:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Trà Sữa Trân Châu Đen", "price": 48000, "is_available": true},
+      {"name": "Trà Xanh Đào Alisan", "price": 52000, "is_available": true},
+      {"name": "Oolong Milk Foam", "price": 55000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_005",
+    "name": "Bánh Mì Huỳnh Hoa",
+    "latitude": 10.7718,
+    "longitude": 106.6948,
+    "opening_time": "14:00",
+    "closing_time": "23:00",
+    "dishes": [
+      {"name": "Bánh Mì Đặc Biệt Nhiều Thịt", "price": 58000, "is_available": true},
+      {"name": "Bánh Mì Chả Lụa Pa tê", "price": 45000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_006",
+    "name": "Hủ Tiếu Nam Vang Thành Đạt",
+    "latitude": 10.7795,
+    "longitude": 106.6982,
+    "opening_time": "00:00",
+    "closing_time": "23:59",
+    "dishes": [
+      {"name": "Hủ Tiếu Nam Vang Khô", "price": 48000, "is_available": true},
+      {"name": "Hủ Tiếu Nam Vang Nước", "price": 48000, "is_available": true},
+      {"name": "Hủ Tiếu Xương Đặc Biệt", "price": 60000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_007",
+    "name": "Cơm Gà Xối Mỡ Lão Hương Thân",
+    "latitude": 10.7741,
+    "longitude": 106.6975,
+    "opening_time": "10:00",
+    "closing_time": "21:30",
+    "dishes": [
+      {"name": "Cơm Gà Xối Mỡ Đùi", "price": 48000, "is_available": true},
+      {"name": "Cơm Gà Xối Mỡ Cánh", "price": 42000, "is_available": true},
+      {"name": "Canh Rong Biển", "price": 8000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_008",
+    "name": "Gà Rán KFC - Nguyễn Huệ",
+    "latitude": 10.7812,
+    "longitude": 106.7050,
+    "opening_time": "10:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Combo Gà Rán 2 Miếng", "price": 79000, "is_available": true},
+      {"name": "Khoai Tây Chiên Vừa", "price": 28000, "is_available": true},
+      {"name": "Burger Tôm", "price": 45000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_009",
+    "name": "Bún Riêu Cua Thanh Hải",
+    "latitude": 10.7850,
+    "longitude": 106.6930,
+    "opening_time": "07:00",
+    "closing_time": "21:00",
+    "dishes": [
+      {"name": "Bún Riêu Cua Đồng Ốc", "price": 45000, "is_available": true},
+      {"name": "Bún Riêu Cua Giò Heo", "price": 50000, "is_available": true},
+      {"name": "Chả Cua Thêm", "price": 15000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_010",
+    "name": "Bánh Canh Cua Út Lệ",
+    "latitude": 10.7620,
+    "longitude": 106.6815,
+    "opening_time": "15:00",
+    "closing_time": "22:30",
+    "dishes": [
+      {"name": "Bánh Canh Cua Giò Heo", "price": 55000, "is_available": true},
+      {"name": "Bánh Canh Cua Không Giò", "price": 48000, "is_available": true},
+      {"name": "Bánh Quẩy Ăn Kèm", "price": 5000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_011",
+    "name": "Mì Quảng Mỹ Sơn",
+    "latitude": 10.7830,
+    "longitude": 106.7020,
+    "opening_time": "06:30",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Mì Quảng Gà Ta", "price": 45000, "is_available": true},
+      {"name": "Mì Quảng Tôm Thịt", "price": 48000, "is_available": true},
+      {"name": "Mì Quảng Trứng Đúc", "price": 42000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_012",
+    "name": "Cơm Niêu Sài Gòn - Tú Xương",
+    "latitude": 10.7845,
+    "longitude": 106.6872,
+    "opening_time": "10:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Cơm Niêu Đập", "price": 30000, "is_available": true},
+      {"name": "Cá Kho Tộ Sài Gòn", "price": 95000, "is_available": true},
+      {"name": "Thịt Kho Tàu", "price": 85000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_013",
+    "name": "Bún Thịt Nướng Kiều Giang",
+    "latitude": 10.7510,
+    "longitude": 106.6980,
+    "opening_time": "07:00",
+    "closing_time": "20:30",
+    "dishes": [
+      {"name": "Bún Thịt Nướng Chả Giò", "price": 38000, "is_available": true},
+      {"name": "Bún Nem Nướng", "price": 42000, "is_available": true},
+      {"name": "Bún Thịt Nướng Đặc Biệt", "price": 48000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_014",
+    "name": "Highlands Coffee - Landmark",
+    "latitude": 10.7758,
+    "longitude": 106.7015,
+    "opening_time": "07:00",
+    "closing_time": "23:00",
+    "dishes": [
+      {"name": "Phin Sữa Đá Cỡ Vừa", "price": 35000, "is_available": true},
+      {"name": "Trà Sen Vàng Cỡ Vừa", "price": 45000, "is_available": true},
+      {"name": "Bánh Mì Thịt Nướng", "price": 19000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_015",
+    "name": "The Coffee House - Đồng Khởi",
+    "latitude": 10.7772,
+    "longitude": 106.6990,
+    "opening_time": "08:00",
+    "closing_time": "22:30",
+    "dishes": [
+      {"name": "Cà Phê Sữa Đá", "price": 32000, "is_available": true},
+      {"name": "Trà Đào Cam Sả Cỡ Lớn", "price": 55000, "is_available": true},
+      {"name": "Mochi Nước Dừa", "price": 29000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_016",
+    "name": "Salad & Healthy Food Clean Eats",
+    "latitude": 10.7725,
+    "longitude": 106.7080,
+    "opening_time": "08:30",
+    "closing_time": "20:00",
+    "dishes": [
+      {"name": "Salad Ức Gà Áp Chảo", "price": 65000, "is_available": true},
+      {"name": "Nước Ép Cần Tây Táo Xanh", "price": 40000, "is_available": true},
+      {"name": "Salad Cá Hồi Xông Khói", "price": 85000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_017",
+    "name": "Bánh Cuốn Hải Nam",
+    "latitude": 10.7801,
+    "longitude": 106.6912,
+    "opening_time": "06:00",
+    "closing_time": "14:00",
+    "dishes": [
+      {"name": "Bánh Cuốn Nhân Thịt Cổ Truyền", "price": 35000, "is_available": true},
+      {"name": "Bánh Cống Sóc Trăng Ăn Thêm", "price": 12000, "is_available": true},
+      {"name": "Bánh Ướt Chả Lụa", "price": 32000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_018",
+    "name": "Nem Nướng Nha Trang Bé Hai",
+    "latitude": 10.7685,
+    "longitude": 106.7045,
+    "opening_time": "10:30",
+    "closing_time": "21:30",
+    "dishes": [
+      {"name": "Mẹt Nem Nướng Nha Trang 1 Người", "price": 45000, "is_available": true},
+      {"name": "Phần Nem Nướng Thêm", "price": 25000, "is_available": true},
+      {"name": "Nước Sâm Lạnh", "price": 10000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_019",
+    "name": "Chè Thái Ý Phương",
+    "latitude": 10.7650,
+    "longitude": 106.6780,
+    "opening_time": "11:00",
+    "closing_time": "23:00",
+    "dishes": [
+      {"name": "Chè Thái Sầu Riêng", "price": 35000, "is_available": true},
+      {"name": "Bánh Flan Trà Xanh", "price": 15000, "is_available": true},
+      {"name": "Chè Khúc Bạch Truyền Thống", "price": 28000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_020",
+    "name": "Bún Chay Giác Ngộ",
+    "latitude": 10.7602,
+    "longitude": 106.6850,
+    "opening_time": "07:00",
+    "closing_time": "21:00",
+    "dishes": [
+      {"name": "Bún Huế Chay", "price": 30000, "is_available": true},
+      {"name": "Hủ Tiếu Khô Chay", "price": 30000, "is_available": true},
+      {"name": "Đậu Hũ Chiên Sả Ớt", "price": 25000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_021",
+    "name": "Gỏi Cuốn Tôm Thịt Cô Giang",
+    "latitude": 10.7615,
+    "longitude": 106.6910,
+    "opening_time": "13:00",
+    "closing_time": "19:00",
+    "dishes": [
+      {"name": "Bộ 5 Gỏi Cuốn Tôm Thịt", "price": 35000, "is_available": true},
+      {"name": "Gỏi Cuốn Tai Heo", "price": 7000, "is_available": true},
+      {"name": "Nước Mía Siêu Sạch", "price": 10000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_022",
+    "name": "K-Pub Tokbokki - Nguyễn Trãi",
+    "latitude": 10.7760,
+    "longitude": 106.7120,
+    "opening_time": "11:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Lẩu Tokbokki Phô Mai", "price": 129000, "is_available": true},
+      {"name": "Gà Rán Sốt Phô Mai Hàn Quốc", "price": 89000, "is_available": true},
+      {"name": "Kimbap Chiên Xù", "price": 45000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_023",
+    "name": "Pizza 4P's - Lê Thánh Tôn",
+    "latitude": 10.7805,
+    "longitude": 106.7032,
+    "opening_time": "11:00",
+    "closing_time": "22:30",
+    "dishes": [
+      {"name": "Pizza Phô Mai Burrata", "price": 250000, "is_available": true},
+      {"name": "Mì Ý Cua Đặc Trưng", "price": 185000, "is_available": true},
+      {"name": "Pizza Hải Sản Sốt Cà Chua", "price": 220000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_024",
+    "name": "Sushi Hokkaido Sachi - Đông Du",
+    "latitude": 10.7720,
+    "longitude": 106.7018,
+    "opening_time": "10:30",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Combo Sushi 6 Món", "price": 180000, "is_available": true},
+      {"name": "Sashimi Cá Hồi Tươi", "price": 150000, "is_available": true},
+      {"name": "Cơm Cuộn Cali Rắc Trứng Cá", "price": 95000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_025",
+    "name": "Lẩu Băng Chuyền Kichi Kichi - Pasteur",
+    "latitude": 10.7745,
+    "longitude": 106.6960,
+    "opening_time": "11:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Buffet Lẩu Băng Chuyền Trưa", "price": 269000, "is_available": true},
+      {"name": "Buffet Lẩu Băng Chuyền Tối", "price": 299000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_026",
+    "name": "Bún Đậu Mắm Tôm A Vừng",
+    "latitude": 10.7865,
+    "longitude": 106.6965,
+    "opening_time": "09:30",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Mẹt Bún Đậu Đầy Đủ", "price": 65000, "is_available": true},
+      {"name": "Chả Cốm Chiên Thêm", "price": 18000, "is_available": true},
+      {"name": "Nước Mơ Hà Nội Chùa Hương", "price": 15000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_027",
+    "name": "Phở Hùng - Nguyễn Trãi",
+    "latitude": 10.7690,
+    "longitude": 106.6902,
+    "opening_time": "06:00",
+    "closing_time": "03:00",
+    "dishes": [
+      {"name": "Phở Thập Cẩm Đặc Biệt", "price": 75000, "is_available": true},
+      {"name": "Phở Bò Tái Viên", "price": 65000, "is_available": true},
+      {"name": "Trà Đá Mát Lạnh", "price": 3000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_028",
+    "name": "Cơm Chay Tùy Duyên",
+    "latitude": 10.7705,
+    "longitude": 106.7095,
+    "opening_time": "08:00",
+    "closing_time": "20:00",
+    "dishes": [
+      {"name": "Cơm Chay Tự Chọn Sườn Rim", "price": 25000, "is_available": true},
+      {"name": "Bánh Mì Chay Chả Nấm", "price": 15000, "is_available": true},
+      {"name": "Sữa Đậu Nành Nhà Làm", "price": 8000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_029",
+    "name": "Sinh Tố & Nước Ép Cô Vy",
+    "latitude": 10.7750,
+    "longitude": 106.7002,
+    "opening_time": "08:00",
+    "closing_time": "23:00",
+    "dishes": [
+      {"name": "Sinh Tố Bơ Sáp Dừa Dẻo", "price": 35000, "is_available": true},
+      {"name": "Nước Ép Dưa Hấu Bạc Hà", "price": 25000, "is_available": true},
+      {"name": "Sinh Tố Xoài Cát Chu", "price": 30000, "is_available": true}
+    ]
+  },
+  {
+    "id": "res_030",
+    "name": "Bánh Tráng Trộn Cô Long",
+    "latitude": 10.7818,
+    "longitude": 106.6908,
+    "opening_time": "12:00",
+    "closing_time": "22:00",
+    "dishes": [
+      {"name": "Bánh Tráng Trộn Tép Khô Trứng Cút", "price": 22000, "is_available": true},
+      {"name": "Bánh Tráng Cuốn Bơ Béo", "price": 25000, "is_available": true},
+      {"name": "Tắc Ép Đá Đường", "price": 10000, "is_available": true}
+    ]
+  }
+]
