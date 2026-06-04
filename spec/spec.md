@@ -1,10 +1,4 @@
 # SPEC Sản Phẩm: Chatbot Gợi Ý Món Ăn ShopeeFood (MVP)
-
-Tài liệu SPEC này được tổng hợp từ:
-*   [synthesis-decide-toolkit.md](file:///f:/AI_thuc_chien/2A202600728_BuiTuanMinh_Day05/02-group-spec/synthesis-decide-toolkit.md)
-*   [thin-spec.md](file:///f:/AI_thuc_chien/2A202600728_BuiTuanMinh_Day05/02-group-spec/thin-spec.md)
-*   [evidence-pack.md](file:///f:/AI_thuc_chien/2A202600728_BuiTuanMinh_Day05/02-group-spec/evidence-pack.md)
-
 ---
 
 ## 1. Bằng chứng (Evidence)
