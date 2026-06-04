@@ -1,0 +1,108 @@
+@startuml ShopeeFood Chatbot Backend Sequence
+
+skinparam ParticipantPadding 10
+skinparam BoxPadding 10
+skinparam ResponseMessageBackend Color #333333
+
+title Luồng xử lý tuần tự Backend - ShopeeFood Chatbot AI (MVP)
+
+actor User as "Người dùng"
+participant Frontend as "Frontend Web App\n(NextJS)"
+box "Backend Server" #LightBlue
+    participant Controller as "API Controller\n(Express / FastAPI)"
+    database DB as "Restaurant DB\n(mock_data.json)"
+    participant LLMService as "LLM Service\n(Prompt + LLM API)"
+    participant Validator as "Code-level Validator\n(Anti-hallucination)"
+end box
+
+== 1. Luồng Happy Path (Yêu cầu đầy đủ & gợi ý thành công) ==
+
+User -> Frontend : Nhập ý định ("nóng, rẻ dưới 50k, gần đây")
+Activate Frontend
+Frontend -> Controller : POST /api/chat {message, location, time}
+Activate Controller
+
+Controller -> DB : Lọc quán thô (Trạng thái: Mở cửa, Bán kính < 5km)
+Activate DB
+DB --> Controller : Trả về danh sách quán khả dụng (Ví dụ: 10 quán)
+Deactivate DB
+
+Controller -> LLMService : Yêu cầu gợi ý (Prompt + danh sách 10 quán + câu chat)
+Activate LLMService
+LLMService -> LLMService : LLM xử lý khớp quán & viết lý do ngắn
+LLMService --> Controller : Trả về JSON (action="suggest", suggestions=[...])
+Deactivate LLMService
+
+Controller -> Validator : Xác thực dữ liệu gợi ý của LLM
+Activate Validator
+Validator -> Validator : Đối chiếu chéo ID quán & món với DB thật
+Validator --> Controller : Trả về danh sách 3 gợi ý sạch (đã xác thực)
+Deactivate Validator
+
+Controller --> Frontend : Phản hồi HTTP 200 {action: "suggest", suggestions: [...]}
+Deactivate Controller
+Frontend --> User : Hiển thị 3 thẻ gợi ý ăn uống kèm lý do
+Deactivate Frontend
+
+User -> Frontend : Bấm chọn 1 quán
+Activate Frontend
+Frontend -> User : Chuyển hướng 1-chạm sang link ShopeeFood thật của quán
+Deactivate Frontend
+
+
+== 2. Luồng Low-Confidence (Ý định quá mơ hồ - Cần làm rõ) ==
+
+User -> Frontend : Nhập ý định mơ hồ ("ăn gì giờ")
+Activate Frontend
+Frontend -> Controller : POST /api/chat {message, ...}
+Activate Controller
+
+Controller -> DB : Lọc quán thô
+Activate DB
+DB --> Controller : Danh sách quán quanh khu vực
+Deactivate DB
+
+Controller -> LLMService : Gửi yêu cầu phân tích ý định
+Activate LLMService
+LLMService -> LLMService : Nhận định thiếu thông tin (món/giá/khẩu vị)
+LLMService --> Controller : Trả về JSON (action="clarify", clarify_question="...")
+Deactivate LLMService
+
+Controller --> Frontend : Phản hồi HTTP 200 {action: "clarify", clarify_question: "..."}
+Deactivate Controller
+Frontend --> User : Chatbot hiển thị câu hỏi gợi mở cho user
+Deactivate Frontend
+
+
+== 3. Luồng Anti-Hallucination (Lọc lỗi ảo tưởng thông tin từ LLM) ==
+
+User -> Frontend : Nhập ý định tìm món ăn
+Activate Frontend
+Frontend -> Controller : POST /api/chat
+Activate Controller
+
+Controller -> LLMService : Gửi yêu cầu gợi ý món
+Activate LLMService
+LLMService --> Controller : Trả về JSON gợi ý (chứa ID "res_999" không có trong DB)
+Deactivate LLMService
+
+Controller -> Validator : Gửi suggestions sang Validator
+Activate Validator
+Validator -> Validator : Kiểm tra đối chiếu DB thật
+note over Validator
+  Phát hiện "res_999" không tồn tại.
+  Loại bỏ khỏi danh sách gợi ý.
+end note
+Validator --> Controller : Trả về danh sách đã lọc (chỉ còn 2 quán hợp lệ)
+Deactivate Validator
+
+alt Số lượng quán hợp lệ sau lọc >= 1
+    Controller --> Frontend : Phản hồi HTTP 200 {action: "suggest", suggestions: [2 quán]}
+else Số lượng quán hợp lệ sau lọc = 0 (Hoặc lỗi dữ liệu)
+    Controller --> Frontend : Phản hồi HTTP 200 {action: "fallback", message: "Gợi ý phổ biến...", fallback_url: "..."}
+end
+Deactivate Controller
+Frontend --> User : Hiển thị kết quả an toàn tương ứng
+Deactivate Frontend
+
+@endum

@@ -1,0 +1,53 @@
+@startuml ShopeeFood Chatbot Backend Architecture
+
+title Sơ đồ thành phần Backend - ShopeeFood Chatbot AI
+
+package "Client Layer (Frontend)" {
+    [Web App UI] as UI <<NextJS / React>>
+    [State Manager] as State <<React Context / Hooks>>
+    
+    UI --> State : Trigger actions
+}
+
+package "Backend Server Layer" {
+    [API Controller] as Controller <<Express / FastAPI>>
+    [LLM Client Service] as LLMService <<LangChain / Google GenAI SDK>>
+    [Code-level Validator] as Validator <<Custom Logic>>
+    
+    State --> Controller : REST Calls (POST /api/chat)
+    Controller --> LLMService : Format Prompts & Request LLM
+    Controller --> Validator : Check LLM Output
+}
+
+package "Data & External Layer" {
+    database "Restaurant DB" as DB <<mock_restaurants.json>> {
+        folder "Schema" {
+            [id]
+            [name]
+            [address]
+            [opening_hours]
+            [dishes (price, status)]
+        }
+    }
+    
+    [Google Gemini API] as LLM <<External LLM API>>
+    
+    Controller --> DB : Query open shops in radius (Pre-filtering)
+    Validator --> DB : Validate IDs (Post-filtering)
+    LLMService --> LLM : Call LLM with Context & Prompt
+}
+
+note right of LLMService
+  **System Prompt:**
+  - Định dạng JSON
+  - Nghiêm cấm bịa quán
+  - Hỏi lại nếu mơ hồ
+end note
+
+note bottom of Validator
+  **Anti-Hallucination:**
+  Đảm bảo mọi ID do LLM gợi ý
+  đều là thật và đang mở cửa.
+end note
+
+@endum
