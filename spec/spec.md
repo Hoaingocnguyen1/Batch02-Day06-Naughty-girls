@@ -42,9 +42,9 @@ Khảo sát được thực hiện trên đối tượng dân văn phòng và si
 | Ô Canvas | Nội dung chi tiết |
 |---|---|
 | **Value**<br>*(Giá trị)* | - **Đối tượng:** Dân văn phòng ăn trưa một mình, nghỉ trưa ngắn (45-60 phút), ngân sách cố định (<60k).<br>- **Nỗi đau:** Choice paralysis (mất 5-20+ phút lướt app rồi thoát do quá tải thông tin và nghi ngờ quảng cáo).<br>- **Giải pháp AI:** Đọc hiểu ý định mơ hồ chứa nhiều ràng buộc cùng lúc (rẻ, gần, ngon) và đề xuất đúng 3 quán kèm dòng lý do thuyết phục để ra quyết định trong <2 phút. |
-| **Trust**<br>*(Niềm tin)* | - **Cách phát hiện sai sót:** Người dùng thấy quán gợi ý không đúng ý định hoặc quán bị đóng cửa/link hỏng.<br>- **Cách khắc phục:** Cung cấp nút refine nhanh ("Khác đi", "Rẻ hơn", "Gần hơn") và nút fallback mở danh sách đầy đủ gốc của ShopeeFood.<br>- **Chặn rủi ro:** Backend kiểm tra chéo ID quán do LLM đề xuất với dữ liệu quán thực tế trước khi hiển thị để loại bỏ hoàn toàn ID ảo. |
-| **Feasibility**<br>*(Tính khả thi)* | - **Rủi ro lớn nhất:** LLM ảo tưởng đề xuất món/quán không có thật hoặc đã đóng cửa.<br>- **Giải pháp:** Tiền lọc dữ liệu thực tế (bán kính <3km, giá <60k) rồi mới đưa cho LLM xếp hạng và viết lý do.<br>- **Ngưỡng dừng:** Giới hạn tối đa 3 lần bấm "Khác đi", sau đó chatbot đề xuất người dùng nhập lại yêu cầu cụ thể hơn hoặc chuyển sang danh mục khuyến mãi chung. |
-| **Tín hiệu học**<br>*(Feedback loop)* | - Khi người dùng bấm refine hoặc chọn đặt quán nào, hệ thống log lại hành vi để học xem tiêu chí nào (khoảng cách, giá, loại món) được ưu tiên cao hơn.<br>- Ghi nhận các câu chat chỉnh sửa/lạc đề của người dùng làm tập test để tinh chỉnh prompt hệ thống. |
+| **Trust**<br>*(Niềm tin)* | - **Cách phát hiện sai sót:** Người dùng thấy quán gợi ý không đúng ý định hoặc quán bị đóng cửa/link hỏng.<br>- **Chặn rủi ro:** Backend kiểm tra chéo ID quán do LLM đề xuất với dữ liệu quán thực tế trước khi hiển thị để loại bỏ hoàn toàn ID ảo. |
+| **Feasibility**<br>*(Tính khả thi)* | - **Rủi ro lớn nhất:** LLM ảo tưởng đề xuất món/quán không có thật hoặc đã đóng cửa.<br>- **Giải pháp:** Tiền lọc dữ liệu thực tế (bán kính <3km, giá <60k) rồi mới đưa cho LLM xếp hạng và viết lý do.<br> |
+| **Tín hiệu học**<br>*(Feedback loop)* | - Khi người dùng chọn món nào, hệ thống log lại hành vi để học xem tiêu chí nào (khoảng cách, giá, loại món) được ưu tiên cao hơn.<br>- Ghi nhận các câu chat chỉnh sửa/lạc đề của người dùng làm tập test để tinh chỉnh prompt hệ thống. |
 
 ---
 
@@ -66,7 +66,7 @@ Nhóm quyết định chọn hướng tiếp cận **Augmentation (Tăng năng l
 | **Đường thuận**<br>*(Happy Path)* | Người dùng nhập ý định rõ ràng (ví dụ: "nóng, dưới 50k, gần đây"). | Trả về tối đa 3 gợi ý quán thực tế kèm lý do ngắn gọn (<= 12 từ) và nút bấm 1-chạm mở quán. Cho phép refine 1 lần ("Rẻ hơn", "Khác đi"). |
 | **Khi AI không chắc**<br>*(Low-confidence)* | Người dùng nhập câu quá mơ hồ (ví dụ: "ăn gì bây giờ", "đói quá"). | Chatbot hỏi lại đúng 1 câu clarify để thu hẹp lựa chọn ("Bạn muốn ăn cơm trưa chắc bụng, bún phở nóng hổi hay món ăn nhẹ nè?"). Nếu vẫn mơ hồ lần 2, đưa ra 3 gợi ý phổ biến nhất quanh đó kèm nhãn "Gợi ý chung". |
 | **Khi AI sai**<br>*(Failure Path)* | 1. Thiếu dữ liệu/quán đóng cửa.<br>2. Ngân sách bất khả thi (sushi 15k).<br>3. LLM ảo tưởng ID quán. | - Nếu thiếu dữ liệu: Báo rõ lý do, gợi ý đổi địa chỉ/đợi giờ mở, hoặc hiển thị nút mở danh sách đầy đủ.<br>- Nếu ngân sách bất khả thi: Báo "quanh bạn chưa có món trong tầm giá này", gợi ý nới giá.<br>- Nếu ảo tưởng: Tầng backend lọc bỏ `restaurant_id` không tồn tại ở tầng code trước khi render. |
-| **Khi người dùng sửa**<br>*(Correction Path)* | - Bấm refine nhiều lần.<br>- Nhập câu hỏi lạc đề.<br>- Hỏi về y tế/sức khỏe. | - Refine "Khác đi" quá 3 lần: Đề nghị nhập lại ý định.<br>- Lạc đề: Từ chối nhẹ, kéo về ăn uống ("Mình chỉ giúp chọn món thôi nha — bạn đang muốn ăn gì?").<br>- Hỏi y tế: Từ chối khéo, đề xuất món nhẹ bụng chung chung + khuyên hỏi bác sĩ. |
+| **Khi người dùng sửa**<br>*(Correction Path)* |Nhập câu hỏi lạc đề.<br>- Hỏi về y tế/sức khỏe. | - Đề nghị nhập lại ý định.<br>- Lạc đề: Từ chối nhẹ, kéo về ăn uống ("Mình chỉ giúp chọn món thôi nha — bạn đang muốn ăn gì?").<br>- Hỏi y tế: Từ chối khéo, đề xuất món nhẹ bụng chung chung + khuyên hỏi bác sĩ. |
 
 ---
 
