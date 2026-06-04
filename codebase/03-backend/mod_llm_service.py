@@ -79,8 +79,34 @@ async def get_llm_suggestions(
     # 1. Chuyển đổi danh sách quán khả dụng thành chuỗi JSON làm ngữ cảnh
     restaurants_context = json.dumps(available_restaurants, ensure_ascii=False, indent=2)
     
+    # Đọc file mock_user.json để lấy context người dùng
+    user_data = {}
+    try:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        user_path = os.path.join(base_dir, "mock_user.json")
+        if os.path.exists(user_path):
+            with open(user_path, "r", encoding="utf-8") as f:
+                user_data = json.load(f)
+    except Exception as e:
+        print(f"Lỗi đọc mock_user.json trong LLM Service: {e}")
+
+    user_context_str = ""
+    if user_data:
+        ctx = user_data.get("context", {})
+        hist = user_data.get("history", {})
+        user_context_str = (
+            f"Thông tin Ngữ cảnh Người dùng (User Context):\n"
+            f"- Vị trí: {ctx.get('location', {}).get('city', 'Hà Nội')} (Tọa độ: {ctx.get('location', {}).get('lat')}, {ctx.get('location', {}).get('lng')})\n"
+            f"- Ý định hiện tại: {ctx.get('current_intent', 'find_food')}\n"
+            f"- Bữa ăn/Thời gian: {ctx.get('current_time', 'lunch')}\n"
+            f"- Lịch sử tìm kiếm gần đây: {', '.join(hist.get('queries', []))}\n"
+            f"- ID các quán ăn đã bấm xem: {', '.join(hist.get('clicked_items', []))}\n"
+            f"- ID các quán ăn đã bỏ qua: {', '.join(hist.get('skipped_items', []))}\n\n"
+        )
+
     # 2. Xây dựng câu lệnh gửi kèm dữ liệu
     full_prompt = (
+        f"{user_context_str}"
         f"Danh sách Available Restaurants:\n{restaurants_context}\n\n"
         f"Câu chat của người dùng: \"{user_prompt}\"\n"
         f"Hãy phân tích và trả về kết quả JSON phù hợp theo quy tắc."

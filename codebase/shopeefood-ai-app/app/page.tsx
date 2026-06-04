@@ -59,7 +59,7 @@ export default function Home() {
         body: JSON.stringify({
           message,
           history: chatHistory,
-          user_location: { lat: 10.776, lng: 106.701 } // mặc định Quận 1, HCM
+          user_location: { lat: 21.0285, lng: 105.8542 } // mặc định Hà Nội theo mock_user.json
         }),
       });
 

@@ -42,14 +42,30 @@ def is_shop_open(current_time: str, open_time: str, close_time: str) -> bool:
     except Exception:
         return False
 
+def load_json_db(db_path: str) -> List[Dict[str, Any]]:
+    """
+    Đọc file database thô và bọc lại thành mảng JSON nếu file gốc chưa được bọc [].
+    """
+    try:
+        with open(db_path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+        if not content:
+            return []
+        if not content.startswith("["):
+            content = "[" + content + "]"
+        return json.loads(content)
+    except Exception as e:
+        print(f"Lỗi đọc Database file {db_path}: {e}")
+        return []
+
 def get_available_restaurants(
     user_location: Dict[str, float],
     current_time: str,
     max_radius_km: float = 5.0,
-    db_path: str = "mock_restaurants.json"
+    db_path: str = "mock_data.json"
 ) -> List[Dict[str, Any]]:
     """
-    Lọc danh sách các quán trong mock_restaurants.json thỏa mãn:
+    Lọc danh sách các quán trong mock_data.json thỏa mãn:
     1. Khoảng cách địa lý <= max_radius_km
     2. Đang mở cửa vào giờ current_time
     3. Có ít nhất một món ăn sẵn sàng bán (is_available = True)
@@ -59,19 +75,21 @@ def get_available_restaurants(
         base_dir = os.path.dirname(os.path.abspath(__file__))
         db_path = os.path.join(base_dir, db_path)
         
-    try:
-        with open(db_path, 'r', encoding='utf-8') as f:
-            restaurants = json.load(f)
-    except Exception as e:
-        print(f"Lỗi đọc Database file {db_path}: {e}")
+    restaurants = load_json_db(db_path)
+    if not restaurants:
         return []
         
     available_restaurants = []
     
     for shop in restaurants:
+        lat = shop.get("lat")
+        lng = shop.get("lng")
+        if lat is None or lng is None:
+            continue
+            
         distance = calculate_distance(
             user_location["lat"], user_location["lng"],
-            shop["latitude"], shop["longitude"]
+            lat, lng
         )
         
         # 1. Kiểm tra khoảng cách
@@ -79,7 +97,10 @@ def get_available_restaurants(
             continue
             
         # 2. Kiểm tra trạng thái đóng/mở cửa
-        if not is_shop_open(current_time, shop["opening_time"], shop["closing_time"]):
+        opening_hours = shop.get("opening_hours", {})
+        open_time = opening_hours.get("open", "00:00")
+        close_time = opening_hours.get("close", "23:59")
+        if not is_shop_open(current_time, open_time, close_time):
             continue
             
         # 3. Lọc danh sách món ăn đang có sẵn
@@ -101,3 +122,4 @@ def get_available_restaurants(
     # Sắp xếp quán theo khoảng cách gần nhất
     available_restaurants.sort(key=lambda x: x["distance_km"])
     return available_restaurants
+

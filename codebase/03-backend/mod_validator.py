@@ -54,12 +54,20 @@ def validate_and_clean_suggestions(
         
         for shop in raw_db:
             # Chỉ gợi ý quán đang mở cửa làm fallback
-            if not is_shop_open(current_time, shop["opening_time"], shop["closing_time"]):
+            opening_hours = shop.get("opening_hours", {})
+            open_time = opening_hours.get("open", "00:00")
+            close_time = opening_hours.get("close", "23:59")
+            if not is_shop_open(current_time, open_time, close_time):
+                continue
+                
+            lat = shop.get("lat")
+            lng = shop.get("lng")
+            if lat is None or lng is None:
                 continue
                 
             dist = calculate_distance(
                 user_location["lat"], user_location["lng"],
-                shop["latitude"], shop["longitude"]
+                lat, lng
             )
             decorated_shops.append({
                 "shop": shop,
@@ -92,11 +100,16 @@ def validate_and_clean_suggestions(
     final_suggestions = []
     for s in clean_list[:3]:
         matched_restaurant = next(r for r in raw_db if r["id"] == s["restaurant_id"])
-        dist = calculate_distance(
-            user_location["lat"], user_location["lng"],
-            matched_restaurant["latitude"], matched_restaurant["longitude"]
-        )
-        
+        lat = matched_restaurant.get("lat")
+        lng = matched_restaurant.get("lng")
+        if lat is not None and lng is not None:
+            dist = calculate_distance(
+                user_location["lat"], user_location["lng"],
+                lat, lng
+            )
+        else:
+            dist = 1.0
+            
         final_suggestions.append({
             "restaurant_id": s["restaurant_id"],
             "restaurant_name": matched_restaurant["name"],
@@ -107,3 +120,4 @@ def validate_and_clean_suggestions(
         })
         
     return final_suggestions
+

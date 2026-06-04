@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 
 # Import các sub-module xử lý
-from mod_db_prefilter import get_available_restaurants
+from mod_db_prefilter import get_available_restaurants, load_json_db
 from mod_llm_service import get_llm_suggestions
 from mod_validator import validate_and_clean_suggestions
 
@@ -56,15 +56,21 @@ class ChatRequest(BaseModel):
 
 # --- Đọc Database thô để làm tham chiếu cho Validator ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "mock_restaurants.json")
+DB_PATH = os.path.join(BASE_DIR, "mock_data.json")
+USER_PATH = os.path.join(BASE_DIR, "mock_user.json")
+
+# Tải thông tin user để làm context mặc định
+try:
+    with open(USER_PATH, "r", encoding="utf-8") as f:
+        raw_user = json.load(f)
+    logger.info(f"Đã tải thành công thông tin user từ {USER_PATH}")
+except Exception as e:
+    raw_user = {}
+    logger.error(f"Lỗi đọc file mock_user.json: {e}")
 
 try:
-    with open(DB_PATH, "r", encoding="utf-8") as f:
-        raw_db = json.load(f)
+    raw_db = load_json_db(DB_PATH)
     logger.info(f"Đã tải thành công database gồm {len(raw_db)} quán ăn.")
-except FileNotFoundError:
-    raw_db = []
-    logger.error(f"Không tìm thấy file database tại {DB_PATH}!")
 except Exception as e:
     raw_db = []
     logger.error(f"Lỗi đọc file database: {e}")
@@ -91,7 +97,15 @@ async def chat_endpoint(request: ChatRequest):
         history = [msg.model_dump() for msg in request.history] if request.history else []
         
         # 1. Trích xuất thông tin tọa độ và thời gian người dùng gửi lên
-        user_location = {"lat": 10.776, "lng": 106.701} # Tọa độ mặc định (Quận 1, HCM)
+        # Lấy tọa độ mặc định từ mock_user.json (Hà Nội) nếu có, nếu không lấy Hà Nội mặc định
+        default_lat = 21.0285
+        default_lng = 105.8542
+        if raw_user and "context" in raw_user and "location" in raw_user["context"]:
+            loc_ctx = raw_user["context"]["location"]
+            default_lat = loc_ctx.get("lat", 21.0285)
+            default_lng = loc_ctx.get("lng", 105.8542)
+
+        user_location = {"lat": default_lat, "lng": default_lng}
         if request.context and request.context.location:
             user_location = {
                 "lat": request.context.location.lat,
