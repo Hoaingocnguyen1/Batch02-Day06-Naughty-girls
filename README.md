@@ -4,7 +4,7 @@
 
 ---
 
-## Thành viên nhóm (A6)
+## Thành viên nhóm (A4)
 1. **Nguyễn Hoài Ngọc**
 2. **Bùi Tuấn Minh** (MSSV: 2A202600728)
 3. **Vũ Nhật Anh**
