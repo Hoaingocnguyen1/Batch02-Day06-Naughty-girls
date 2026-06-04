@@ -4,7 +4,7 @@ Nộp kèm thin SPEC cuối Day 05.
 
 ## 1. Nhóm và track
 
-**Tên nhóm:** Naughty girls
+**Tên nhóm:** A6
 
 **Track:** Food & Local Delivery
 
