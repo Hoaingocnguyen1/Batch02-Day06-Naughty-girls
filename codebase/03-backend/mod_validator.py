@@ -44,8 +44,48 @@ def validate_and_clean_suggestions(
     Hậu kiểm danh sách gợi ý. 
     Nếu danh sách sạch bị rỗng -> Tự động Fallback lấy 3 quán gần nhất đang mở cửa.
     """
-    # 1. Lọc bỏ gợi ý không hợp lệ
-    clean_list = [s for s in llm_suggestions if is_valid_suggestion(s, raw_db)]
+    # 1. Lọc và chuẩn hóa các gợi ý từ LLM
+    clean_list = []
+    for s in llm_suggestions:
+        restaurant_id = s.get("restaurant_id")
+        matched_restaurant = next((r for r in raw_db if r["id"] == restaurant_id), None)
+        if not matched_restaurant:
+            continue
+            
+        dish_name_lower = s.get("dish_name", "").strip().lower()
+        # So khớp hoàn toàn trước
+        matched_dish = next(
+            (d for d in matched_restaurant.get("dishes", []) 
+             if d["name"].strip().lower() == dish_name_lower and d.get("is_available", True)), 
+            None
+        )
+        
+        # Nếu không khớp hoàn toàn, tìm khớp mềm (chứa nhau)
+        if not matched_dish:
+            matched_dish = next(
+                (d for d in matched_restaurant.get("dishes", []) 
+                 if (dish_name_lower in d["name"].strip().lower() or 
+                     d["name"].strip().lower() in dish_name_lower) and d.get("is_available", True)), 
+                None
+            )
+            
+        if not matched_dish:
+            continue
+            
+        # Kiểm tra lệch giá so với giá trị thật (cho phép lệch tối đa 25% trước khi từ chối)
+        real_price = matched_dish["price"]
+        suggested_price = s.get("price", 0)
+        if real_price <= 0:
+            continue
+            
+        price_diff_percent = abs(real_price - suggested_price) / real_price
+        if price_diff_percent > 0.25:
+            continue
+            
+        # Tự động đồng bộ hóa thông tin chuẩn xác từ database thật để hiển thị trên UI và frontend
+        s["dish_name"] = matched_dish["name"]
+        s["price"] = matched_dish["price"]
+        clean_list.append(s)
     
     # 2. Nếu danh sách sạch rỗng (LLM bịa toàn bộ hoặc lỗi cấu trúc JSON)
     if not clean_list:

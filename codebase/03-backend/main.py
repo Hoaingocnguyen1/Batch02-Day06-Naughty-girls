@@ -127,9 +127,42 @@ async def chat_endpoint(request: ChatRequest):
         
         logger.info(f"Tìm thấy {len(available_shops)} quán mở cửa khả dụng trong bán kính giao hàng.")
         
-        # Tối ưu hóa: Chỉ gửi tối đa 10 quán ăn gần nhất cho Gemini để giảm kích thước prompt và tăng tốc độ xử lý của AI
-        available_shops = available_shops[:10]
-        logger.info(f"Giới hạn gửi cho Gemini còn {len(available_shops)} quán gần nhất.")
+        # Ưu tiên các quán khớp từ khóa trong yêu cầu của người dùng lên trước (kể cả ở xa hơn)
+        # sau đó mới lấy top 10 để gửi cho LLM, tránh việc các quán khớp yêu cầu ở xa bị cắt mất.
+        def prioritize_and_limit_shops(shops: List[Dict[str, Any]], query: str) -> List[Dict[str, Any]]:
+            query_lower = query.lower()
+            stop_words = {"ăn", "uống", "giá", "tầm", "gần", "đây", "quanh", "cho", "mình", "tìm", "kiếm", "quán", "tiệm", "hiệu", "ngon", "rẻ", "đắt", "bán", "mua", "gợi", "ý", "recommend", "khoảng", "dưới", "trên"}
+            search_words = [w for w in query_lower.split() if len(w) >= 2 and w not in stop_words]
+            
+            scored_shops = []
+            for shop in shops:
+                score = 0
+                shop_name = shop.get("name", "").lower()
+                cuisine = shop.get("cuisine", "").lower()
+                tags = [t.lower() for t in shop.get("tags", [])]
+                dishes = [d.get("name", "").lower() for d in shop.get("dishes", [])]
+                
+                for word in search_words:
+                    # So khớp danh mục món/cuisine hoặc tag
+                    if word == cuisine or any(word == t for t in tags):
+                        score += 10
+                    elif word in cuisine or any(word in t for t in tags):
+                        score += 5
+                    # So khớp tên quán
+                    if word in shop_name:
+                        score += 5
+                    # So khớp tên món ăn
+                    if any(word in d for d in dishes):
+                        score += 3
+                
+                scored_shops.append((score, shop))
+            
+            # Sắp xếp theo score giảm dần, nếu bằng score thì xếp theo khoảng cách (distance_km) tăng dần
+            scored_shops.sort(key=lambda x: (-x[0], x[1].get("distance_km", 0.0)))
+            return [item[1] for item in scored_shops][:10]
+
+        available_shops = prioritize_and_limit_shops(available_shops, message)
+        logger.info(f"Giới hạn gửi cho LLM còn {len(available_shops)} quán tối ưu nhất.")
         
         # Trường hợp biên: Không có quán nào mở cửa quanh bán kính giao hàng
         if not available_shops:
