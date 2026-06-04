@@ -4,11 +4,25 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // Forward the request to the FastAPI backend
-    const backendRes = await fetch('http://127.0.0.1:8000/api/recommend', {
+    // Map frontend request structure to backend ChatRequest structure
+    const backendBody = {
+      message: body.message,
+      history: body.history || [],
+      context: {
+        location: body.user_location ? {
+          lat: body.user_location.lat,
+          lng: body.user_location.lng
+        } : null,
+        current_time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', hour12: false })
+      }
+    };
+
+    // Forward the request to the FastAPI backend at /api/chat
+    const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:8000';
+    const backendRes = await fetch(`${backendUrl}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      body: JSON.stringify(backendBody),
     });
 
     if (!backendRes.ok) {

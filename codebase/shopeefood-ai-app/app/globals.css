@@ -84,3 +84,23 @@ body {
     animation-delay: 0s !important;
   }
 }
+
+/* Standard CSS Animations */
+@keyframes custom-fade-in {
+  from { filter: blur(3px); opacity: 0; }
+  to { filter: blur(0); opacity: 1; }
+}
+
+@keyframes custom-slide-up {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: custom-fade-in 300ms ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: custom-slide-up 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { ViewTransition } from 'react';
 
 interface Suggestion {
   restaurant_id: string;
