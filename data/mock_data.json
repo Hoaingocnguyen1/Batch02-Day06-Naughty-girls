@@ -12,8 +12,7 @@
 "cuisine": "Bún cá",
 "address": "5 Ngõ Trung Yên, Hàng Bạc, Hoàn Kiếm, Hà Nội",
 "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bún+Cá+Sâm+Cây+Si+5+Ngõ+Trung+Yên+Hàng+Bạc+Hoàn+Kiếm+Hà+Nội",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/bun-ca-cay-si-toi",
-"cover_image_url": "https://source.unsplash.com/800x600/?fish,noodle,soup,vietnam",
+"cover_image_url": "https://thanhnien.mediacdn.vn/uploaded/ngocthanh/2019_03_23/anh-2_RGXY.jpg?width=500",
 "opening_hours": { "open": "07:00", "close": "17:00" },
 "contexts": ["breakfast", "lunch"],
 "dishes": [
@@ -21,14 +20,14 @@
     "id": "dish_2601",
     "name": "Bún Cá Rán",
     "price": 50000,
-    "image_url": "https://source.unsplash.com/400x300/?fried,fish,noodle",
+    "image_url": "https://assets.grab.com/wp-content/uploads/sites/11/2019/09/09164359/BD3CE356-5535-44A5-B5C6-22DA57B42AD7.jpg",
     "is_available": true
     },
     {
     "id": "dish_2602",
     "name": "Cá Cuốn Thịt",
     "price": 10000,
-    "image_url": "https://source.unsplash.com/400x300/?fish,roll,fried",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl6VcHjZDpZYYHEbLu-vE5NmypkP1CnEaiYw&s",
     "is_available": true
     }
 ],
@@ -47,9 +46,8 @@
 "eta_min": 10,
 "cuisine": "Bún đậu",
 "address": "Ngõ 31 Hàng Khay, Tràng Tiền, Hoàn Kiếm, Hà Nội",
-"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bún+Đậu+Mắm+Tôm+Ngõ+31+Hàng+Khay+Hoàn+Kiếm+Hà+Nội",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=Bun+Dau+Mam+Tom+Hang+Khay",
-"cover_image_url": "https://source.unsplash.com/800x600/?tofu,fried,vietnamese",
+"google_maps_url": "https://maps.app.goo.gl/PV6TuDjM6DY2Ebi26",
+"cover_image_url": "https://down-bs-vn.img.susercontent.com/vn-11134513-7r98o-lsvfg9x2wd6s6e@resize_ss640x400!@crop_w640_h400_cT",
 "opening_hours": { "open": "07:00", "close": "21:00" },
 "contexts": ["lunch", "dinner", "group"],
 "dishes": [
@@ -57,7 +55,7 @@
     "id": "dish_2701",
     "name": "Mẹt Bún Đậu Đặc Biệt",
     "price": 85000,
-    "image_url": "https://source.unsplash.com/400x300/?tofu,vietnam,plate",
+    "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81@resize_ss400x400!@crop_w400_h400_cT",
     "is_available": true
     }
 ],
@@ -76,9 +74,8 @@
 "eta_min": 20,
 "cuisine": "Chả cá",
 "address": "2D & 6B Đường Thành, Cửa Đông, Hoàn Kiếm, Hà Nội",
-"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chả+Cá+Thăng+Long+Đường+Thành+Hoàn+Kiếm+Hà+Nội",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=Cha+Ca+Thang+Long+Duong+Thanh",
-"cover_image_url": "https://source.unsplash.com/800x600/?grilled,fish,hanoi,vietnamese",
+"google_maps_url": "https://maps.app.goo.gl/pcRuXAsHe7JcsLoD6",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSJUWEuhA8tXLgyI19iqes4DPNgkFZjEBAfQ&s",
 "opening_hours": { "open": "08:45", "close": "22:30" },
 "contexts": ["lunch", "dinner", "family"],
 "dishes": [
@@ -86,7 +83,7 @@
     "id": "dish_2801",
     "name": "Chả Cá Lăng",
     "price": 180000,
-    "image_url": "https://source.unsplash.com/400x300/?grilled,fish,turmeric",
+    "image_url": "https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-cha-ca-thang-long-duong-thanh-slide-1-normal-12069355172.webp",
     "is_available": true
     }
 ],
@@ -135,8 +132,7 @@
 "cuisine": "Cafe",
 "address": "27 Nhà Thờ, Hoàn Kiếm, Hà Nội",
 "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cong+Ca+Phe+Nha+Tho",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=Cong+Ca+Phe",
-"cover_image_url": "https://source.unsplash.com/800x600/?coconut,coffee,vietnam",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQIBu7-iOSwfBt90mgFunQV5zMIbdaMcpTNg&s",
 "opening_hours": { "open": "07:30", "close": "23:30" },
 "contexts": ["drink", "work", "date"],
 "dishes": [
@@ -144,7 +140,7 @@
     "id": "dish_3001",
     "name": "Cà Phê Cốt Dừa",
     "price": 55000,
-    "image_url": "https://source.unsplash.com/400x300/?coconut,coffee",
+    "image_url": "https://cdn.tgdd.vn/2020/08/CookProduct/17-1200x676-3.jpg",
     "is_available": true
     }
 ],
@@ -222,8 +218,7 @@
 "cuisine": "Burger",
 "address": "2 Hàng Bài, Hoàn Kiếm, Hà Nội",
 "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McDonalds+Hang+Bai",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=McDonalds",
-"cover_image_url": "https://source.unsplash.com/800x600/?burger",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXmf6JIlRVFBpfhGpFwdJyquJqzlrpXFpADQ&s",
 "opening_hours": { "open": "07:00", "close": "23:00" },
 "contexts": ["family"],
 "dishes": [
@@ -231,7 +226,7 @@
     "id": "dish_3301",
     "name": "Big Mac",
     "price": 89000,
-    "image_url": "https://source.unsplash.com/400x300/?burger",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0SpGl8wCm8O_fAIkqbL-LTR5418s0zK83aA&s",
     "is_available": true
     }
 ],
@@ -250,9 +245,8 @@
 "eta_min": 25,
 "cuisine": "Japanese",
 "address": "191 Bà Triệu, Hà Nội",
-"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sushi+Kei+Ba+Trieu",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=Sushi+Kei",
-"cover_image_url": "https://source.unsplash.com/800x600/?sushi",
+"google_maps_url": "https://maps.app.goo.gl/Qw9bn6LDNwkarSxi6",
+"cover_image_url": "https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-sushi-kei-mipec-tay-son-slide-9-normal-12150979002.webp",
 "opening_hours": { "open": "10:00", "close": "22:00" },
 "contexts": ["date"],
 "dishes": [
@@ -279,9 +273,8 @@
 "eta_min": 35,
 "cuisine": "Hotpot",
 "address": "54 Liễu Giai, Ba Đình, Hà Nội",
-"google_maps_url": "https://www.google.com/maps/search/?api=1&query=Manwah+Lotte+Lieu+Giai",
-"shopeefood_url": "https://shopeefood.vn/ha-noi/search?q=Manwah",
-"cover_image_url": "https://source.unsplash.com/800x600/?hotpot",
+"google_maps_url": "https://maps.app.goo.gl/Yp6YnvriEnhS6sAb8",
+"cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRKzMWH4RrlwAyKAvA67U_RmTE9AjA7ku9w&s",
 "opening_hours": { "open": "10:00", "close": "22:00" },
 "contexts": ["group", "family"],
 "dishes": [
@@ -289,7 +282,7 @@
     "id": "dish_3501",
     "name": "Buffet Lẩu",
     "price": 399000,
-    "image_url": "https://source.unsplash.com/400x300/?hotpot",
+    "image_url": "https://product.hstatic.net/1000275435/product/5_optimized_6aba5b13ddb2428d84283b9a553ddd54_master.jpg",
     "is_available": true
     }
 ],
