@@ -66,7 +66,7 @@ export default function Home() {
       if (!res.ok) throw new Error('API Error');
 
       const data = await res.json();
-      
+
       let assistantMsg: Message;
 
       if (data.action === 'clarify') {
@@ -140,7 +140,7 @@ export default function Home() {
 
       {/* Main Content Area */}
       <main className="flex-1 w-full max-w-4xl px-4 py-8 flex flex-col justify-between">
-        
+
         {/* Intro */}
         {messages.length === 0 && !isLoading ? (
           <div className="text-center my-auto flex flex-col items-center animate-fade-in">
@@ -150,13 +150,13 @@ export default function Home() {
             <p className="text-lg text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
               Nhập hoặc nói tên món ăn, hương vị bạn muốn. Trợ lý AI sẽ gợi ý cho bạn 3 lựa chọn tốt nhất!
             </p>
-            
+
             {/* Quick Suggestion Chips */}
             <div className="flex flex-wrap justify-center gap-3 max-w-xl px-4">
               {[
-                'Cơm gà xối mỡ ngon rẻ', 
-                'Trà sữa ít ngọt gần đây', 
-                'Món cháo nóng cho người ốm', 
+                'Cơm gà xối mỡ ngon rẻ',
+                'Trà sữa ít ngọt gần đây',
+                'Món cháo nóng cho người ốm',
                 'Bún đậu mắm tôm chuẩn vị'
               ].map((suggestionText) => (
                 <button
@@ -178,9 +178,8 @@ export default function Home() {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex flex-col ${
-                  msg.role === 'user' ? 'items-end' : 'items-start'
-                }`}
+                className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'
+                  }`}
               >
                 {/* Chat message wrapper */}
                 <div className={`flex items-start space-x-3 max-w-[85%] ${msg.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
@@ -189,29 +188,15 @@ export default function Home() {
                       AI
                     </div>
                   )}
-                  
+
                   <div className="flex flex-col">
                     <div
-                      className={`px-4 py-3 rounded-2xl shadow-xs text-sm leading-relaxed ${
-                        msg.role === 'user'
+                      className={`px-4 py-3 rounded-2xl shadow-xs text-sm leading-relaxed ${msg.role === 'user'
                           ? 'bg-[var(--color-shopee-orange)] text-white rounded-tr-none'
                           : 'bg-white text-gray-800 border border-gray-100 rounded-tl-none'
-                      }`}
+                        }`}
                     >
                       <p className="whitespace-pre-wrap">{msg.content}</p>
-                      
-                      {/* Actions/Fallback links */}
-                      {msg.action === 'fallback' && msg.fallback_url && (
-                        <div className="mt-3">
-                          <a
-                            href={msg.fallback_url}
-                            id={`fallback-btn-${msg.id}`}
-                            className="inline-block px-4 py-2 bg-[var(--color-shopee-orange)] hover:bg-orange-600 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors"
-                          >
-                            Duyệt tất cả quán ăn ➜
-                          </a>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -226,7 +211,7 @@ export default function Home() {
                 )}
               </div>
             ))}
-            
+
             {/* Loading status inside chat */}
             {isLoading && (
               <div className="flex items-start space-x-3 self-start max-w-[85%]">
@@ -239,11 +224,11 @@ export default function Home() {
                     <div className="w-2.5 h-2.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                     <div className="w-2.5 h-2.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                   </div>
-                  <span>Đang chọn quán ngon...</span>
+                  <span>Đang suy nghĩ...</span>
                 </div>
               </div>
             )}
-            
+
             <div ref={messagesEndRef} />
           </div>
         ) : null}
@@ -259,7 +244,7 @@ export default function Home() {
         {/* Input Bar & Clean Chat Button */}
         <div className="w-full mt-auto flex flex-col items-center space-y-4">
           <ChatInputBar onSend={handleSend} isLoading={isLoading} />
-          
+
           {messages.length > 0 && (
             <button
               onClick={() => setMessages([])}
