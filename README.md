@@ -4,6 +4,15 @@
 
 ---
 
+## Thành viên nhóm (A6)
+1. **Nguyễn Hoài Ngọc**
+2. **Bùi Tuấn Minh** (MSSV: 2A202600728)
+3. **Vũ Nhật Anh**
+4. **Phan Hoài Nam**
+5. **Nguyễn Võ Nguyên Huy**
+
+---
+
 ## Cách nộp bài
 
 **Đại diện nhóm tạo MỘT repo nhóm**, đặt tên:
