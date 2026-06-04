@@ -1,0 +1,261 @@
+[
+  {
+    "id": "res_001",
+    "name": "Bún Bò Cô Ba",
+    "lat": 10.7635,
+    "lng": 106.6620,
+    "is_open": true,
+    "dishes": [
+      {"name": "Bún Bò Nạm Lớn", "price": 45000},
+      {"name": "Bún Bò Tái", "price": 42000}
+    ],
+    "tags": ["nóng", "nước", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_002",
+    "name": "Cơm Tấm Phúc Lộc Thọ",
+    "lat": 10.7610,
+    "lng": 106.6580,
+    "is_open": true,
+    "dishes": [
+      {"name": "Cơm Sườn Bì Chả", "price": 48000},
+      {"name": "Cơm Sườn Non", "price": 65000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_003",
+    "name": "Phở Hùng Cao Thắng",
+    "lat": 10.7650,
+    "lng": 106.6650,
+    "is_open": true,
+    "dishes": [
+      {"name": "Phở Bò Tái Nạm", "price": 65000},
+      {"name": "Phở Gà", "price": 60000}
+    ],
+    "tags": ["nóng", "nước", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_004",
+    "name": "Hủ Tiếu Nam Vang Thành Đạt",
+    "lat": 10.7600,
+    "lng": 106.6640,
+    "is_open": true,
+    "dishes": [
+      {"name": "Hủ Tiếu Nước Đặc Biệt", "price": 48000},
+      {"name": "Hủ Tiếu Khô", "price": 48000}
+    ],
+    "tags": ["nóng", "nước", "khô", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_005",
+    "name": "Bánh Mì Huỳnh Hoa",
+    "lat": 10.7720,
+    "lng": 106.6910,
+    "is_open": true,
+    "dishes": [
+      {"name": "Bánh Mì Đặc Biệt", "price": 65000}
+    ],
+    "tags": ["khô", "lạnh", "mặn", "no bụng", "ăn nhẹ"]
+  },
+  {
+    "id": "res_006",
+    "name": "Súp Cua Hạnh",
+    "lat": 10.7630,
+    "lng": 106.6570,
+    "is_open": false,
+    "dishes": [
+      {"name": "Súp Cua Bắc Thảo", "price": 30000},
+      {"name": "Súp Cua Trứng Muối", "price": 35000}
+    ],
+    "tags": ["nóng", "nước", "mặn", "ăn nhẹ"]
+  },
+  {
+    "id": "res_007",
+    "name": "Chè Thái Ý Phương",
+    "lat": 10.7580,
+    "lng": 106.6600,
+    "is_open": true,
+    "dishes": [
+      {"name": "Chè Thái", "price": 35000},
+      {"name": "Tàu Hũ Trân Châu", "price": 25000}
+    ],
+    "tags": ["lạnh", "nước", "chay", "ăn nhẹ"]
+  },
+  {
+    "id": "res_008",
+    "name": "Bánh Canh Cua Út Lệ",
+    "lat": 10.7590,
+    "lng": 106.6500,
+    "is_open": true,
+    "dishes": [
+      {"name": "Bánh Canh Đặc Biệt", "price": 55000},
+      {"name": "Bánh Canh Giò Heo", "price": 50000}
+    ],
+    "tags": ["nóng", "nước", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_009",
+    "name": "Gà Rán Popeyes 3 Tháng 2",
+    "lat": 10.7660,
+    "lng": 106.6550,
+    "is_open": true,
+    "dishes": [
+      {"name": "2 Miếng Gà Giòn", "price": 78000},
+      {"name": "Khoai Tây Chiên", "price": 25000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "no bụng", "ăn nhẹ"]
+  },
+  {
+    "id": "res_010",
+    "name": "Trà Sữa Gong Cha",
+    "lat": 10.7640,
+    "lng": 106.6690,
+    "is_open": true,
+    "dishes": [
+      {"name": "Trà Sữa Trân Châu Đen", "price": 55000},
+      {"name": "Trà Alisan Trái Cây", "price": 50000}
+    ],
+    "tags": ["lạnh", "nước", "chay", "ăn nhẹ"]
+  },
+  {
+    "id": "res_011",
+    "name": "Hủ Tiếu Dê Cường Lực",
+    "lat": 10.7750,
+    "lng": 106.6500,
+    "is_open": true,
+    "dishes": [
+      {"name": "Hủ Tiếu Dê Đặc Biệt", "price": 85000}
+    ],
+    "tags": ["nóng", "nước", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_012",
+    "name": "Bánh Mì Hà Nội",
+    "lat": 10.7620,
+    "lng": 106.6610,
+    "is_open": true,
+    "dishes": [
+      {"name": "Bánh Mì Thịt Chả", "price": 20000},
+      {"name": "Bánh Mì Pate", "price": 18000}
+    ],
+    "tags": ["khô", "mặn", "ăn nhẹ"]
+  },
+  {
+    "id": "res_013",
+    "name": "Cơm Chay Tùy Duyên",
+    "lat": 10.7640,
+    "lng": 106.6590,
+    "is_open": true,
+    "dishes": [
+      {"name": "Cơm Thập Cẩm Chay", "price": 30000},
+      {"name": "Bún Huế Chay", "price": 30000}
+    ],
+    "tags": ["nóng", "khô", "nước", "chay", "no bụng"]
+  },
+  {
+    "id": "res_014",
+    "name": "Mì Quảng Sông Trà",
+    "lat": 10.7680,
+    "lng": 106.6620,
+    "is_open": true,
+    "dishes": [
+      {"name": "Mì Quảng Gà", "price": 45000},
+      {"name": "Mì Quảng Tôm Thịt", "price": 48000}
+    ],
+    "tags": ["nóng", "nước", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_015",
+    "name": "Bánh Cuốn Hải Nam",
+    "lat": 10.7780,
+    "lng": 106.6800,
+    "is_open": true,
+    "dishes": [
+      {"name": "Bánh Cuốn Nhân Thịt", "price": 40000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "no bụng", "ăn nhẹ"]
+  },
+  {
+    "id": "res_016",
+    "name": "Nem Nướng Nha Trang Bé Thảo",
+    "lat": 10.7600,
+    "lng": 106.6450,
+    "is_open": true,
+    "dishes": [
+      {"name": "Phần Nem Nướng", "price": 60000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_017",
+    "name": "Bún Đậu Mắm Tôm A Vừng",
+    "lat": 10.7650,
+    "lng": 106.6780,
+    "is_open": true,
+    "dishes": [
+      {"name": "Mẹt Đầy Đủ", "price": 65000},
+      {"name": "Mẹt Đậu Mơ", "price": 45000}
+    ],
+    "tags": ["lạnh", "khô", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_018",
+    "name": "Dimsum Tiến Phát",
+    "lat": 10.7520,
+    "lng": 106.6540,
+    "is_open": true,
+    "dishes": [
+      {"name": "Há Cảo Tôm", "price": 45000},
+      {"name": "Xíu Mại", "price": 40000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "ăn nhẹ"]
+  },
+  {
+    "id": "res_019",
+    "name": "Bún Thịt Nướng Kiều Giang",
+    "lat": 10.7700,
+    "lng": 106.6700,
+    "is_open": false,
+    "dishes": [
+      {"name": "Bún Thịt Nướng Chả Giò", "price": 45000}
+    ],
+    "tags": ["lạnh", "khô", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_020",
+    "name": "Kem Tràng Tiền",
+    "lat": 10.7600,
+    "lng": 106.6800,
+    "is_open": true,
+    "dishes": [
+      {"name": "Kem Ốc Quế", "price": 15000},
+      {"name": "Kem Que", "price": 10000}
+    ],
+    "tags": ["lạnh", "khô", "chay", "ăn nhẹ"]
+  },
+  {
+    "id": "res_021",
+    "name": "Cơm Gà Hải Nam Chợ Lớn",
+    "lat": 10.7630,
+    "lng": 106.6640,
+    "is_open": true,
+    "dishes": [
+      {"name": "Cơm Gà Hải Nam", "price": 50000},
+      {"name": "Cơm Gà Xối Mỡ", "price": 55000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "no bụng"]
+  },
+  {
+    "id": "res_022",
+    "name": "Cơm Niêu Thiên Lý",
+    "lat": 10.7620,
+    "lng": 106.6570,
+    "is_open": true,
+    "dishes": [
+      {"name": "Cơm Niêu Thịt Kho Tộ", "price": 65000},
+      {"name": "Cơm Niêu Lòng Gà", "price": 58000}
+    ],
+    "tags": ["nóng", "khô", "mặn", "no bụng"]
+  }
+]
