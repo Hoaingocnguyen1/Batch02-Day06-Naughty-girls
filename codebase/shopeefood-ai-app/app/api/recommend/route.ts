@@ -18,21 +18,38 @@ export async function POST(request: Request) {
     };
 
     // Forward the request to the FastAPI backend at /api/chat
-    const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:8000';
+    let backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:8000';
+    if (backendUrl.endsWith('/')) {
+      backendUrl = backendUrl.slice(0, -1);
+    }
+    console.log("Next.js Proxy calling backend URL:", `${backendUrl}/api/chat`);
+
     const backendRes = await fetch(`${backendUrl}/api/chat`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Bypass-Tunnel-Reminder': 'true',     // Bỏ qua trang chào của localtunnel
+        'ngrok-skip-browser-warning': 'true'  // Bỏ qua trang chào của ngrok (nếu dùng)
+      },
       body: JSON.stringify(backendBody),
     });
 
     if (!backendRes.ok) {
-      throw new Error(`Backend API returned status ${backendRes.status}`);
+      const errorText = await backendRes.text().catch(() => "");
+      throw new Error(`Backend API returned status ${backendRes.status}. Response: ${errorText}`);
     }
 
     const data = await backendRes.json();
     return NextResponse.json(data);
-  } catch (error) {
-    console.error("Backend Proxy Error:", error);
-    return NextResponse.json({ error: "Failed to connect to backend API" }, { status: 500 });
+  } catch (error: any) {
+    console.error("Backend Proxy Error details:", {
+      message: error?.message,
+      cause: error?.cause,
+      stack: error?.stack
+    });
+    return NextResponse.json({ 
+      error: "Failed to connect to backend API", 
+      details: error?.message 
+    }, { status: 500 });
   }
 }

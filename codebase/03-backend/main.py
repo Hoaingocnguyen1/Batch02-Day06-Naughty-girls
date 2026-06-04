@@ -113,6 +113,10 @@ async def chat_endpoint(request: ChatRequest):
         
         logger.info(f"Tìm thấy {len(available_shops)} quán mở cửa khả dụng trong bán kính giao hàng.")
         
+        # Tối ưu hóa: Chỉ gửi tối đa 10 quán ăn gần nhất cho Gemini để giảm kích thước prompt và tăng tốc độ xử lý của AI
+        available_shops = available_shops[:10]
+        logger.info(f"Giới hạn gửi cho Gemini còn {len(available_shops)} quán gần nhất.")
+        
         # Trường hợp biên: Không có quán nào mở cửa quanh bán kính giao hàng
         if not available_shops:
             logger.info("Không tìm thấy quán nào khả dụng -> Kích hoạt fallback không có quán.")
@@ -184,4 +188,4 @@ if __name__ == "__main__":
     # Đọc cấu hình Port từ .env, mặc định là 8000
     port = int(os.getenv("PORT", 8000))
     logger.info(f"Đang khởi chạy uvicorn tại cổng {port}...")
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
