@@ -10,6 +10,8 @@ interface Suggestion {
   distance_km: number;
   eta_minutes: number;
   reason: string;
+  image_url?: string;
+  google_maps_url?: string;
 }
 
 interface TrioPlateCarouselProps {

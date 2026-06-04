@@ -85,6 +85,7 @@ def validate_and_clean_suggestions(
             available_dishes = [d for d in shop.get("dishes", []) if d.get("is_available", True)]
             dish_name = available_dishes[0]["name"] if available_dishes else "Món ăn đặc biệt"
             price = available_dishes[0]["price"] if available_dishes else 0
+            image_url = available_dishes[0].get("image_url") if available_dishes else None
             
             fallback_suggestions.append({
                 "restaurant_id": shop["id"],
@@ -92,7 +93,9 @@ def validate_and_clean_suggestions(
                 "dish_name": dish_name,
                 "price": price,
                 "distance_km": round(item["distance"], 2),
-                "reason": "Gợi ý quán ăn phổ biến và gần bạn nhất đang mở cửa (Mặc định)."
+                "reason": "Gợi ý quán ăn phổ biến và gần bạn nhất đang mở cửa (Mặc định).",
+                "image_url": image_url,
+                "google_maps_url": shop.get("google_maps_url")
             })
         return fallback_suggestions
         
@@ -110,13 +113,23 @@ def validate_and_clean_suggestions(
         else:
             dist = 1.0
             
+        # Tìm món ăn trong quán để lấy image_url
+        matched_dish = next(
+            (d for d in matched_restaurant.get("dishes", []) 
+             if d["name"].strip().lower() == s["dish_name"].strip().lower()), 
+            None
+        )
+        image_url = matched_dish.get("image_url") if matched_dish else None
+            
         final_suggestions.append({
             "restaurant_id": s["restaurant_id"],
             "restaurant_name": matched_restaurant["name"],
             "dish_name": s["dish_name"],
             "price": s["price"],
             "distance_km": round(dist, 2),
-            "reason": s["reason"]
+            "reason": s["reason"],
+            "image_url": image_url,
+            "google_maps_url": matched_restaurant.get("google_maps_url")
         })
         
     return final_suggestions

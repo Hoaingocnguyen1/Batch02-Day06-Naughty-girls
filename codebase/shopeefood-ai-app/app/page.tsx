@@ -13,6 +13,8 @@ interface Suggestion {
   distance_km: number;
   eta_minutes: number;
   reason: string;
+  image_url?: string;
+  google_maps_url?: string;
 }
 
 interface Message {
@@ -84,7 +86,9 @@ export default function Home() {
           price: s.price || 0,
           distance_km: s.distance_km || 0,
           eta_minutes: s.eta_mins || s.eta_minutes || 0,
-          reason: s.reason || ''
+          reason: s.reason || '',
+          image_url: s.image_url || '',
+          google_maps_url: s.google_maps_url || ''
         }));
 
         assistantMsg = {
