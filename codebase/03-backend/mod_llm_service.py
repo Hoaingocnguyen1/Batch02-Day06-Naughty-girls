@@ -1,15 +1,19 @@
 import os
 import json
 from typing import List, Dict, Any
-import google.generativeai as genai
+from openai import AsyncOpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Cấu hình Google Gemini API Key
-api_key = os.getenv("GEMINI_API_KEY")
-if api_key:
-    genai.configure(api_key=api_key)
+# Cấu hình OpenAI API Key
+api_key = os.getenv("OPENAI_API_KEY")
+model_name = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+# Khởi tạo AsyncOpenAI client nếu có api_key hợp lệ
+client = None
+if api_key and api_key != "your_openai_api_key_here":
+    client = AsyncOpenAI(api_key=api_key)
 
 SYSTEM_PROMPT = """Bạn là trợ lý ảo gợi ý món ăn thông minh của ứng dụng ShopeeFood.
 Nhiệm vụ của bạn là phân tích ý định (prompt) của người dùng kết hợp với danh sách quán ăn khả dụng (Available Restaurants) được cung cấp dưới đây để đưa ra tối đa 3 đề xuất món/quán phù hợp nhất.
@@ -20,7 +24,7 @@ QUY TẮC BẮT BUỘC:
 3. Nếu câu chat của người dùng quá mơ hồ (thiếu cả 3 thông tin quan trọng: loại món muốn ăn, ngân sách, hoặc ràng buộc/khẩu vị cơ bản) khiến bạn không thể chọn món hợp lý, hãy đặt giá trị "action" là "clarify" và đưa ra duy nhất 1 câu hỏi làm rõ thân thiện tại trường "clarify_question".
 4. Nếu người dùng hỏi các chủ đề lạc đề (thời tiết, tin tức, chính trị, v.v.), hãy đặt "action" là "fallback" và từ chối khéo léo để dẫn dắt họ quay lại chuyện ăn uống.
 5. Không đưa ra lời khuyên y tế hay dinh dưỡng chuyên sâu. Nếu được hỏi, đề xuất một món nhẹ bụng chung chung từ danh sách và khuyên người dùng tham khảo ý kiến bác sĩ.
-6. Trả về đúng định dạng JSON yêu cầu. Không bao quanh bởi markdown block ```json hay bất kỳ chữ thừa nào khác.
+6. Trả về đúng định dạng JSON yêu cầu.
 
 ĐỊNH DẠNG JSON ĐẦU RA BẮT BUỘC:
 {
@@ -37,32 +41,19 @@ QUY TẮC BẮT BUỘC:
   ]
 }"""
 
-# Cấu hình GenerativeModel
-generation_config = {
-    "temperature": 0.2, # Giảm sáng tạo để tăng tính chính xác
-    "response_mime_type": "application/json" # Ép kết quả định dạng JSON
-}
-
-# Khởi tạo model một lần
-model = genai.GenerativeModel(
-    model_name="gemini-3.5-flash",
-    generation_config=generation_config,
-    system_instruction=SYSTEM_PROMPT
-)
-
-def format_history_for_gemini(chat_history: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def format_history_for_openai(chat_history: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Chuyển đổi history từ dạng [{role: 'user', message: '...'}]
-    sang định dạng của Gemini API [{role: 'user'/'model', parts: ['...']}]
+    sang định dạng của OpenAI Chat completion [{"role": "user"|"assistant", "content": "..."}]
     """
-    gemini_history = []
+    openai_history = []
     for msg in chat_history:
-        role = "user" if msg.get("role") == "user" else "model"
-        gemini_history.append({
+        role = "user" if msg.get("role") == "user" else "assistant"
+        openai_history.append({
             "role": role,
-            "parts": [msg.get("message", "")]
+            "content": msg.get("message", "")
         })
-    return gemini_history
+    return openai_history
 
 async def get_llm_suggestions(
     user_prompt: str,
@@ -70,12 +61,19 @@ async def get_llm_suggestions(
     chat_history: List[Dict[str, Any]] = []
 ) -> Dict[str, Any]:
     """
-    Gọi Gemini API để lấy đề xuất món ăn
+    Gọi OpenAI API để lấy đề xuất món ăn
     """
-    if not os.getenv("GEMINI_API_KEY"):
+    global client, api_key
+    # Nếu client chưa được khởi tạo, thử khởi tạo lại bằng biến môi trường mới nhất
+    if not client:
+        api_key = os.getenv("OPENAI_API_KEY")
+        if api_key and api_key != "your_openai_api_key_here":
+            client = AsyncOpenAI(api_key=api_key)
+
+    if not client:
         return {
             "action": "fallback",
-            "message": "Hệ thống chưa cấu hình GEMINI_API_KEY trong file .env."
+            "message": "Hệ thống chưa cấu hình hoặc cấu hình sai OPENAI_API_KEY trong file .env."
         }
 
     # 1. Chuyển đổi danh sách quán khả dụng thành chuỗi JSON làm ngữ cảnh
@@ -89,19 +87,29 @@ async def get_llm_suggestions(
     )
     
     try:
-        # 3. Tạo Chat Session và nạp lịch sử trò chuyện
-        gemini_history = format_history_for_gemini(chat_history)
-        chat = model.start_chat(history=gemini_history)
+        # 3. Chuẩn bị danh sách messages cho OpenAI
+        messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+        messages.extend(format_history_for_openai(chat_history))
+        messages.append({"role": "user", "content": full_prompt})
         
-        # 4. Gửi yêu cầu lấy gợi ý
-        response = chat.send_message(full_prompt)
+        # 4. Gửi yêu cầu lấy gợi ý (Sử dụng JSON mode của OpenAI)
+        response = await client.chat.completions.create(
+            model=model_name,
+            messages=messages,
+            response_format={"type": "json_object"},
+            temperature=0.2 # Giảm sáng tạo để tăng tính chính xác
+        )
         
         # 5. Phân tích kết quả JSON trả về
-        result_data = json.loads(response.text)
+        result_text = response.choices[0].message.content
+        if not result_text:
+            raise ValueError("Phản hồi từ OpenAI bị rỗng.")
+        result_data = json.loads(result_text)
         return result_data
     except Exception as e:
-        print(f"Lỗi khi tương tác với Gemini API: {e}")
+        print(f"Lỗi khi tương tác với OpenAI API: {e}")
         return {
             "action": "fallback",
             "message": f"Dịch vụ AI đang gặp sự cố: {str(e)}"
         }
+
