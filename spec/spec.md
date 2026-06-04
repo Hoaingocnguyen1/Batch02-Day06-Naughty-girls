@@ -106,10 +106,10 @@ Nhóm quyết định chọn hướng tiếp cận **Augmentation (Tăng năng l
 
 ## 8. Phân công thành viên (Naughty Girls)
 
-| Thành viên | Vai trò | Công việc cụ thể | Bằng chứng đóng góp |
-|---|---|---|---|
-| **Nhật Anh** | UX Researcher | Thu thập dữ liệu khảo sát, phân tích insights người dùng, viết báo cáo evidence và đối chiếu đối thủ. | Bản kết quả khảo sát thực tế, tài liệu phân tích đối thủ cạnh tranh. |
-| **Ngọc** | QA / Test Engineer | Thiết kế và chạy thử 12 testcases, phát hiện lỗi logic, viết bộ xử lý lỗi fallback ở backend. | Bảng kết quả kiểm thử testcases, code xử lý fallback logic. |
-| **Minh** | Frontend Developer | Thiết kế giao diện chatbot trên web/mobile, tối ưu hóa các micro-interactions, tích hợp nút 1-chạm mở quán. | Mã nguồn giao diện chat, hiệu ứng gợi ý và chuyển trang mượt mà. |
-| **Huy** | Backend & AI Engineer | Thiết kế database mock, xây dựng API kết nối LLM, viết prompt system và thực hiện tiền lọc dữ liệu. | Mã nguồn backend, cấu trúc prompt hệ thống và DB mock quán ăn. |
-| **Nam** | Product Owner / Demo | Viết kịch bản demo, chuẩn bị slide thuyết trình, quay video demo và điều phối dự án. | Kịch bản demo, slide trình chiếu và video demo các luồng sản phẩm. |
+| Thành viên | Việc phụ trách | Bằng chứng cần có trong repo |
+|---|---|---|
+| Nhật Anh | Research / evidence | Bảng kết quả khảo sát thực tế |
+| Nhật Anh và Ngọc | SPEC | Hoàn thiện file `thin-spec.md` và `evidence-pack.md`. |
+| Minh & Huy & Nam  | Prototype | Source code giao diện chat gợi ý, prompt system và danh sách quán mẫu giả lập (10-20 quán). |
+| Ngọc | Test / failure path | Bảng chạy 12 testcase và code xử lý các kịch bản fallback. |
+| Cả nhóm | Demo script / repo | Tài liệu kịch bản demo và video quay thử các luồng. |
