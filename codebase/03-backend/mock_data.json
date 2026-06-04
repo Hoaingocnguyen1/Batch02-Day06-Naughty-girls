@@ -247,44 +247,44 @@
   },
   {
     "id": "res_007",
-    "name": "Bún Đậu Mắm Tôm Ngõ Trạm",
-    "lat": 21.0315,
-    "lng": 105.8458,
+    "name": "Cơm Sườn Đào Duy Từ",
+    "lat": 21.0350,
+    "lng": 105.8500,
     "is_open": true,
     "rating": 4.3,
     "review_count": 1800,
     "distance_km": 1.4,
     "eta_min": 10,
-    "cuisine": "Bún đậu",
-    "address": "1B Ngõ Trạm, Hoàn Kiếm, Hà Nội",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bún+Đậu+Ngõ+Trạm+1B+Ngõ+Trạm+Hoàn+Kiếm+Hà+Nội",
-    "cover_image_url": "https://down-vn.img.susercontent.com/vn-11134513-7r98o-lsts7gssrogpff@resize_ss576x330",
-    "opening_hours": { "open": "09:00", "close": "16:00" },
-    "contexts": ["lunch"],
+    "cuisine": "Cơm",
+    "address": "47 Đào Duy Từ, Hàng Buồm, Hoàn Kiếm, Hà Nội",
+    "google_maps_url": "https://maps.app.goo.gl/pcRuXAsHe7JcsLoD8",
+    "cover_image_url": "https://mia.vn/media/uploads/blog-du-lich/com-suon-dao-duy-tu-ha-noi.jpg",
+    "opening_hours": { "open": "09:00", "close": "22:00" },
+    "contexts": ["lunch", "dinner"],
     "dishes": [
       {
         "id": "dish_0701",
-        "name": "Mẹt Bún Đậu Đầy Đủ",
-        "price": 65000,
-        "image_url": "https://down-vn.img.susercontent.com/vn-11134513-7r98o-lsts7gssrogpff@resize_ss576x330",
+        "name": "Cơm Sườn Nướng Cực Ngon",
+        "price": 40000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       },
       {
         "id": "dish_0702",
-        "name": "Nem Chua Rán Gọi Thêm",
-        "price": 40000,
-        "image_url": "https://down-vn.img.susercontent.com/vn-11134513-7r98o-lsts7gssrogpff@resize_ss576x330",
+        "name": "Cơm Gà Nướng Mật Ong",
+        "price": 45000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       },
       {
         "id": "dish_0703",
-        "name": "Chả Cốm Gọi Thêm",
-        "price": 35000,
-        "image_url": "https://down-vn.img.susercontent.com/vn-11134513-7r98o-lsts7gssrogpff@resize_ss576x330",
+        "name": "Canh Cải Thịt Băm Gọi Thêm",
+        "price": 10000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       }
     ],
-    "tags": ["khô", "đậu phụ", "ăn trưa", "trong ngõ", "đậm đà"]
+    "tags": ["cơm sườn", "cơm gà", "ăn trưa", "phố cổ", "đậm đà"]
   },
   {
     "id": "res_008",
@@ -985,85 +985,85 @@
   },
   {
     "id": "res_025",
-    "name": "Kichi-Kichi Phạm Ngọc Thạch",
-    "lat": 21.0105,
-    "lng": 105.8335,
+    "name": "Cơm Tấm Phương Anh Phùng Hưng",
+    "lat": 21.0310,
+    "lng": 105.8480,
     "is_open": true,
     "rating": 4.4,
     "review_count": 4800,
     "distance_km": 2.8,
     "eta_min": 20,
-    "cuisine": "Hotpot",
-    "address": "101 Phạm Ngọc Thạch, Đống Đa, Hà Nội",
-    "google_maps_url": "https://maps.app.goo.gl/EQLR293nJjS2eWJz4",
-    "cover_image_url": "https://pasgo.vn/Upload/anh-chi-tiet/kichi-kichi.jpg",
-    "opening_hours": { "open": "11:00", "close": "22:00" },
-    "contexts": ["group", "family"],
+    "cuisine": "Cơm",
+    "address": "119 Phùng Hưng, Hàng Bông, Hoàn Kiếm, Hà Nội",
+    "google_maps_url": "https://maps.app.goo.gl/EQLR293nJjS2eWJz5",
+    "cover_image_url": "https://mia.vn/media/uploads/blog-du-lich/com-tam-phuong-anh.jpg",
+    "opening_hours": { "open": "10:00", "close": "22:00" },
+    "contexts": ["lunch", "dinner", "group"],
     "dishes": [
       {
         "id": "dish_2501",
-        "name": "Buffet Lẩu Băng Chuyền",
-        "price": 299000,
-        "image_url": "https://kichi.com.vn/images/buffet.jpg",
+        "name": "Cơm Tấm Sườn Bì Chả Đặc Biệt",
+        "price": 45000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       },
       {
         "id": "dish_2502",
-        "name": "Combo Bò Mỹ Thượng Hạng",
-        "price": 150000,
-        "image_url": "https://pasgo.vn/Upload/anh-chi-tiet/kichi-kichi.jpg",
+        "name": "Cơm Tấm Sườn Chả Ốp La",
+        "price": 38000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       },
       {
         "id": "dish_2503",
-        "name": "Nước Lẩu Tomyum Đồ Biển",
-        "price": 80000,
-        "image_url": "https://kichi.com.vn/images/buffet.jpg",
+        "name": "Canh Khổ Qua Nhồi Thịt Nóng Hổi",
+        "price": 15000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       }
     ],
-    "tags": ["buffet", "lẩu", "no nê", "nhóm bạn"]
+    "tags": ["cơm tấm", "sườn nướng", "no nê", "bình dân"]
   },
   {
     "id": "res_026",
-    "name": "Bò Tơ Quán Mộc Thái Hà",
-    "lat": 21.0112,
-    "lng": 105.8190,
+    "name": "Cơm Niêu Kombo Cửa Nam",
+    "lat": 21.0280,
+    "lng": 105.8430,
     "is_open": true,
     "rating": 4.5,
     "review_count": 6900,
     "distance_km": 4.1,
     "eta_min": 30,
-    "cuisine": "Bò",
-    "address": "102 Thái Hà, Đống Đa, Hà Nội",
+    "cuisine": "Cơm",
+    "address": "37 Cửa Nam, Hoàn Kiếm, Hà Nội",
     "google_maps_url": "https://maps.app.goo.gl/PV6TuDjM6DY2Ebi33",
-    "cover_image_url": "https://botoquanmoc.com/images/quan.jpg",
+    "cover_image_url": "https://mia.vn/media/uploads/blog-du-lich/com-nieu-kombo.jpg",
     "opening_hours": { "open": "10:00", "close": "22:30" },
-    "contexts": ["group", "family"],
+    "contexts": ["lunch", "dinner", "family"],
     "dishes": [
       {
         "id": "dish_2611",
-        "name": "Bò Tơ Xông Hơi",
-        "price": 185000,
-        "image_url": "https://botoquanmoc.com/images/bo-to.jpg",
+        "name": "Cơm Niêu Bò Nướng 1 Mặt Cháy",
+        "price": 59000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       },
       {
         "id": "dish_2612",
-        "name": "Lẩu Đuôi Bò Thơm Ngon",
-        "price": 350000,
-        "image_url": "https://botoquanmoc.com/images/quan.jpg",
+        "name": "Cơm Niêu Gà Sốt Nấm 2 Mặt Cháy",
+        "price": 65000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       },
       {
         "id": "dish_2613",
-        "name": "Bò Tơ Cuốn Bánh Tráng",
-        "price": 175000,
-        "image_url": "https://botoquanmoc.com/images/bo-to.jpg",
+        "name": "Cơm Niêu Thịt Heo Sốt BBQ",
+        "price": 49000,
+        "image_url": "https://mms.img.susercontent.com/vn-11134517-7r98o-lr3l9sc3hghw81",
         "is_available": true
       }
     ],
-    "tags": ["đặc sản", "bò tơ", "nhậu", "gia đình"]
+    "tags": ["cơm niêu", "cơm cháy", "đặc sản", "sốt đậm đà"]
   },
   {
     "id": "res_027",
